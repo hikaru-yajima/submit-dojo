@@ -1,22 +1,27 @@
 /* ここに記載する */
 #contents{
   margin: 30px;
+  width: 60vw;
 }
 
 .content1{
   background-color: #ffbf00;
-}
+  text-align:center;
+} 
 
 .content2{
   background-color: #1992d4;
+  text-align:center;
 }
 
 .content3{
   background-color: #003399;
+  text-align:center;
 }
 
 .content4{
   background-color: #df4356;
+  text-align:center;
 }
 
 
