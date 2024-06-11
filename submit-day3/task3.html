@@ -115,13 +115,13 @@ Object.keys(fileManage).forEach((val) => {
   Object.keys(fileManage[val]).forEach((listname) => {
     const masumei = `${val}-${listname}`;
     document.getElementById(masumei).textContent = fileManage[val][listname];
-    if (fileManage[val][listname] === 'Everyone') {
+  });
+  if (fileManage[val].viewAuth === 'Everyone') {
       const li = document.createElement('li');
-      console.log(fileManage[val]);
+      // console.log(fileManage[val]);
       li.textContent = fileManage[val].folderName;
       document.getElementById(`list`).appendChild(li);
     }
-  });
 });
 
 // 課題3-1での設定(94-111)
@@ -130,6 +130,12 @@ Object.keys(fileManage).forEach((val) => {
 //   val = f001-f003    listname = foldername とかviewAuthとか    masumei = tableの各マス
 // 課題3-3での設定(117-121)
 //   書き換えたい部分の要素としてliを作成し、それをliTagという変数として取得
+
+
+// [listname].viewAuth => 該当フォルダ名なし
+// .viewAuth => 4つずつでてしまう
+// viewAuthのみのforEachを作る必要があるのか？？
+
 </script>
 </body>
 </html>
