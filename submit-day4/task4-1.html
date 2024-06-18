@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dojo課題</title>
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+header {
+  background-color: #1aaedb;
+  border-bottom: #ead963 6px solid;
+}
+.container {
+  padding: 16px;
+  padding-left: 120px;
+}
+header h1,
+header h2 {
+  margin: 0;
+  color: #fff;
+  line-height: 1;
+}
+header h1 {
+  padding: 30px 0 5px 0;
+  font-size: 24px;
+  border-bottom: 1px dotted #fff;
+  font-weight: 500;
+}
+header h2 {
+  padding: 6px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>kintone dojo</h1>
+    <h2>JavaScript課題③</h2>
+  </div>
+</header>
+<main class="container">
+  <h1>kintone のライセンス料</h1>
+  <div class="user">最低ユーザー数(ライトコース)での利用料金</div><br/>
+  <input type="checkbox" class="chk" value="250"/>セキュアオプション（1ユーザー あたり 250円）<br/>
+  <input type="checkbox" class="chk" value="1000"/>ディスク増設（10GB あたり 1000円）<br/>
+  <h3>月額金額：<span id="price">3900</span>円</h3>
+</main>
+<script>
+  // ここに処理を記載する
+  // イベント  クリックした時
+  // インプット  クリックされたそのvalueを持ってくる
+  // 加工  valueたちを足して
+  // アウトプット
+'use strict';
+// checkつけたものを変数としておく
+// 値ひとつづつを変数として、チェックが入ったこれ とこれ と取得する
+const checkbox = document.getElementsByClassName('chk')
+// console.log(checkbox);
+let total = document.getElementById('price').textContent
+let result = Number(total);
+// console.log(result);
+// console.log(typeof result);
+checkbox[0].onclick = () => {
+  const checkedSecure = checkbox[0].value;
+    const secureSubtotal = checkedSecure*5
+    // console.log(secureSubtotal);
+    // console.log(typeof secureSubtotal);
+    if (checkbox[0].checked) {
+    result = result + secureSubtotal
+  } else {
+    result = result - secureSubtotal
+  }
+  document.getElementById("price").textContent = result
+// typeofでデータの型を確認できる！
+};
+checkbox[1].onclick = () => {
+  const checkedDisk = checkbox[1].value;
+  let checkedDiskNumber = Number(checkedDisk);
+  // console.log(checkedDiskNumber);
+  // console.log(typeof checkedDiskNumber);
+  if (checkbox[1].checked) {
+    result = result + checkedDiskNumber
+  } else {
+    result = result - checkedDiskNumber
+  }
+  document.getElementById("price").textContent = result
+};
+</script>
+</body>
+</html>
