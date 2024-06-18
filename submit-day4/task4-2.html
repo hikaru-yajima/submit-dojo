@@ -67,84 +67,51 @@ header h2 {
   <button id="btn">計算</button>
 </main>
 <script>
-  // ここに処理を記載する
 
-// イベント   ドロップボックスで選択した時    ボタンを押したとき
-// インプット   その選択した値をvalueとして取得して
-// 加工   計算して
-// アウトプット  計算結果を合計金額としてだす
   // ここに処理を記載する
   // イベント  クリックした時
-  // インプット  クリックされたそのvalueを持ってくる
-  // 加工  valueたちを足して
+  // インプット  クリックされたオプションの料金を変数に入れる
+  // 加工  3900に各オプション料金を足して
   // アウトプット
   'use strict';
-// checkつけたものを変数としておく
-// 値ひとつづつを変数として、チェックが入ったこれ とこれ と取得する
 const checkbox = document.getElementsByClassName('chk')
-console.log(checkbox);
-let total = document.getElementById('price').textContent
-let result = Number(total);
-console.log(result);
-console.log(typeof result);
+// console.log(checkbox);
+let tanka = document.getElementById('price').textContent
+let subTotal = Number(tanka);
+// console.log(subTotal);
+// console.log(typeof subTotal);
+// checkboxの要素、最終的な合計
+let securebunn = document.createElement('securebunn')
+let secureCost = Number(securebunn);
+let diskbunn = document.createElement('diskbunn')
+let diskCost = Number(diskbunn);
+// チェックされる/されないによって変動した分をいれる変数
 const button = document.getElementById('btn')
-
-// checkbox[0].onclick = () => {
-//   const checkedSecure = checkbox[0].value;
-//     const secure = Number(checkedSecure);
-//     // console.log(secureSubtotal);
-//     // console.log(typeof secureSubtotal);
-//     }
-//     if (checkbox[0].checked) {
-//     result = result + secure * selectedsuuji
-//   }
-// // typeofでデータの型を確認できる！
-// checkbox[1].onclick = () => {
-//   const checkedDisk = checkbox[1].value;
-//   const disk = Number(checkedDisk);
-//   // console.log(checkedDiskNumber);
-//   // console.log(typeof checkedDiskNumber);
-//   if (checkbox[1].checked) {
-//     result = result + disk * selectedsuuji
-//   }
-// }
-// button.onclick = () => {
-//     Object.values(checkbox).forEach((elem, index) => {
-//       if (elem.checked) {
-//         let suuji = document.getElementsByClassName('slct')[index].value;
-//         let suuti = Number(suuji);
-//         console.log(suuti)
-//         result = result + checkbox[index] * suuti
-//        } //else {
-//       //   result = result - checkbox[index] * suuti
-//       // }
-//     });
-//     document.getElementById("price").textContent = result
-//   }
-
+// ボタン
+const checkedSecure = checkbox[0].value;
+const secure = Number(checkedSecure);
+const checkedDisk = checkbox[1].value;
+const disk = Number(checkedDisk);
+// 各オプション単体の値段
   button.onclick = () => {
       if (checkbox[0].checked) {
-        const checkedSecure = checkbox[0].value;
-        const secure = Number(checkedSecure);
         let user = document.getElementsByClassName('slct')[0].value;
         let userNumber = Number(user);
-        console.log(userNumber)
-        result = result + secure * userNumber
+        // console.log(userNumber)
+        secureCost = secure * userNumber
+       } else {
+        secureCost = 0
        }
       if (checkbox[1].checked) {
-        const checkedDisk = checkbox[1].value;
-        const disk = Number(checkedDisk);
         let GB = document.getElementsByClassName('slct')[1].value;
         let GBNumber = Number(GB);
-        console.log(GBNumber)
-        result = result + disk * GBNumber
+        // console.log(GBNumber)
+        diskCost = disk * GBNumber
+       } else {
+        diskCost = 0
        }
-       document.getElementById("price").textContent = result
+       document.getElementById("price").textContent = subTotal + secureCost + diskCost
     };
-  // チェックされているか
-  // されてたらdropdown値の取得
-
-// // typeofでデータの型を確認できる！
 </script>
 </body>
 </html>
