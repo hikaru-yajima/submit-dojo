@@ -36,6 +36,7 @@
       const ketugoumoji = [formatDate,ryakusyou,kanrinumber];
       console.log(ketugoumoji);
       event.record['重複禁止項目_文字列'].value = ketugoumoji.join('-');
+      event.record['重複禁止項目_文字列'].disabled = true;
 //     return event;
 //   }
       return event;
