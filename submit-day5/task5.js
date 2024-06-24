@@ -42,13 +42,18 @@ const response = axios.get('https://oykh3vmu623yt5rufrstzlyxyi0kitod.lambda-url.
     // if文でurl遷移の条件分岐
     const tdtgt = data[val].target.value;
     const tdurl = data[val].url.value;
-    tdcont.onclick = () => {
-      if (tdtgt === '_self') {
-        window.location.href = tdurl;
-      } else {
-        window.open(tdurl, '_blank');
-      }
-    };
-    return;
+
+      // if (tdtgt === '_self') {
+      //   window.location.href = tdurl;
+      // } else {
+      //   window.open(tdurl, '_blank');
+      // }
+
+      const link = document.createElement('a');
+      link.href = tdurl
+      link.target = tdtgt
+      link.textContent = tdcont.textContent
+     tdcont.appendChild(link);
   });
+  return;
 });
