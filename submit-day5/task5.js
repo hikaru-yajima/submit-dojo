@@ -22,7 +22,7 @@ const response = axios.get('https://oykh3vmu623yt5rufrstzlyxyi0kitod.lambda-url.
     // tdc.setAttribute('id', 'tdcid');
     tdday.textContent = data[val].day.value;
     tdctgr.textContent = data[val].category.value;
-    tdcont.textContent = data[val].content.value;
+    // tdcont.textContent = data[val].content.value;
     switch (tdctgr.textContent) {
       case 'IR 情報':
         tdctgr.classList.add('highlightred');
@@ -52,7 +52,8 @@ const response = axios.get('https://oykh3vmu623yt5rufrstzlyxyi0kitod.lambda-url.
       const link = document.createElement('a');
       link.href = tdurl
       link.target = tdtgt
-      link.textContent = tdcont.textContent
+      link.textContent = data[val].content.value;
+      // こうすることでニュースのタイトル（見た目）をクリックするとurl（中身）に遷移するようになる！
      tdcont.appendChild(link);
   });
   return;
