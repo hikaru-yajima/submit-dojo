@@ -5,8 +5,7 @@
     // ︎加工: 提案プランの値に合わせて条件分岐し日付を操作する
     // ︎出力： 結果を日付フィールドに挿入
 
-    kintone.events.on(
-      ["app.record.create.show", "app.record.edit.show"],
+    kintone.events.on("app.record.create.show",
       async (event) => {
 
       const body = {
