@@ -6,8 +6,7 @@
   // ︎出力： 結果を日付フィールドに挿入
 
   // task6 行を追加してテキストを指定したフィールドにいれるループをすればできそう
-  kintone.events.on(
-    ["app.record.create.show", "app.record.edit.show"],
+  kintone.events.on("app.record.create.show",
     (event) => {
       console.log(event);
 
